@@ -2,7 +2,7 @@
 echo "<h2>Разбираем примеры из методички</h2>";
 echo "<hr>";
 
-echo "Hello, World!";
+echo "Hello, World!!!";
 echo "<hr>";
 
 $name = "GeekBrains user";
