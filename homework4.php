@@ -10,41 +10,27 @@
 </head>
 <body>
 <div class="photos">
-    <?php
-    $photos = scandir("img/small");
-    for ($i = 2; $i < count($photos); $i++) {
-        $photo = $i - 2;
-        if ($photo < 10) {
-            $photo = "0" . $photo;
-        } ?>
-
-        <a href="homework4-show.php?name=big<?= $photo ?>"><img class="small-image"
-                                                                src="img/small/small<?= $photo ?>.jpg"
-                                                                alt="small<?= $photo ?>"></a>
-    <?php } ?>
+<!--  генерация галереи  -->
+<?php require_once("homework4-gallery.php")?>
 </div>
+<hr>
+
+<!-- Почему то у меня не отправляется файл есть указать method="post", нужны большие буквы чтобы работало. Почему? -->
+<form action="homework4-add-file.php" method="POST" enctype="multipart/form-data">
+    <label for="#file-input">Загрузка файла на сервер.</label><br>
+    <input type="file" id="file-input" name="file-input" accept=".jpg"><br>
+    <input type="submit" id="submit">
+</form>
+
+
+
 <div class="modal hidden" id="modal">
-    <img src="img/big/big00.jpg" alt="">
+    <img id="big-image" src="img/big/big00.jpg" alt="">
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script>
-
-    const $modal = $("#modal");
-
-    $(".small-image").click(function (e) {
-        e.preventDefault();
-        $modal.toggleClass("hidden");
-        $modal.fadeIn("slow", function () {
-        });
-    });
-
-
-    $modal.click(function () {
-        $modal.fadeOut("slow", function () {
-        });
-    });
-</script>
-
+<!-- скрипт модального окна -->
+<script src="scripts/gallery.js"></script>
+<script src="scripts/upload.js"></script>
 </body>
 </html>
 
