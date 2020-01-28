@@ -1,5 +1,5 @@
 <?php
-https://wp-kama.ru/id_9026/jquery-ajax-zagruzka-fajlov-na-server.html
+//https://wp-kama.ru/id_9026/jquery-ajax-zagruzka-fajlov-na-server.html
 object2file($_POST, 'log.txt');
 
 if ($_FILES["file-input"]['size'] > 3000000) {

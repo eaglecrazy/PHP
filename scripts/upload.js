@@ -20,7 +20,7 @@ $submit.click((e) => {
     // })
 
     data.append('file', file);
-    // data.append('file-input', 1);
+    data.append('file-input', 1);
 
     $.ajax({
         url : 'homework4-add-file.php',
