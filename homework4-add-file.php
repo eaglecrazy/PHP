@@ -1,6 +1,5 @@
 <?php
 //https://wp-kama.ru/id_9026/jquery-ajax-zagruzka-fajlov-na-server.html
-object2file($_POST, 'log.txt');
 
 if ($_FILES["file-input"]['size'] > 3000000) {
     print_r("Размер файла более чем 3 Мегабайта");
@@ -13,10 +12,11 @@ if ($_FILES["file-input"]['size'] > 3000000) {
     $path_small = "img/small/small$number.jpg";
     $path_big = "img/big/big$number.jpg";
 
-    if (move_uploaded_file($_FILES["file-input"]["tmp_name"], $path_big)) {
+    if (move_uploaded_file($_FILES[0]["tmp_name"], $path_big)) {
         print_r('OK');
         imageresize($path_small,$path_big,273,153,100);
     }
+    die( 'OK' );
 }
 
 function imageresize($outfile,$infile,$neww,$newh,$quality) {
@@ -34,14 +34,4 @@ function imageresize($outfile,$infile,$neww,$newh,$quality) {
     imagejpeg($im1,$outfile,$quality);
     imagedestroy($im);
     imagedestroy($im1);
-}
-
-
-function object2file($value, $filename)
-{
-    $str_value = serialize($value);
-
-    $f = fopen($filename, 'w');
-    fwrite($f, $str_value);
-    fclose($f);
 }

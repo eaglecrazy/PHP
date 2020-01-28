@@ -1,1 +1,1 @@
-a:1:{s:4:"file";s:17:"[object FileList]";}
+a:1:{s:14:"my_file_upload";s:1:"1";}

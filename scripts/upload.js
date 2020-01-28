@@ -1,26 +1,25 @@
 const $input = $("#file-input");
 const $submit = $("#submit");
-let file;
+let files;
 
 
 $input.change(function () {
-    file = this.files;
+    files = this.files;
 });
 
 $submit.click((e) => {
     e.preventDefault();
 
-    if (!typeof file)
+    if (!typeof files)
         return;
-    const data = new FormData();
-    //
-    // $.each(file, (key,value) => {
-    //     console.log('key = ' + key);
-    //     console.log('val = ' + value);
-    // })
+    let data = new FormData();
 
-    data.append('file', file);
-    data.append('file-input', 1);
+    $.each( files, function( key, value ){
+        data.append( key, value );
+    });
+
+
+    data.append('my_file_upload', 1);
 
     $.ajax({
         url : 'homework4-add-file.php',
