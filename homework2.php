@@ -1,4 +1,5 @@
 <?php
+
 //1. Объявить две целочисленные переменные $a и $b и задать им произвольные начальные значения.
 $a = rand(-100, 100);
 $b = rand(-100, 100);
@@ -150,6 +151,7 @@ function mytime($hour, $min)
     }
     return $hour . ' час' . $hourEnd . ' ' . $min . ' минут' . $minEnd;
 }
+//todo !!!
 echo mytime(rand(0, 23), rand(0, 59)) . '<br>';
 echo mytime(rand(0, 23), rand(0, 59)) . '<br>';
 echo mytime(rand(0, 23), rand(0, 59)) . '<br>';
