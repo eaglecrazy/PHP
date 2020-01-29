@@ -13,9 +13,16 @@ if ($_FILES["upload_file"]['size'] > 3000000) {
     if (move_uploaded_file($_FILES["upload_file"]["tmp_name"], $path_big)) {
         imageresize($path_small, $path_big, 273, 153, 100);
     }
+    require_once("homework5-config.php");
+    addToDb($link, $path_big, $path_small, $_FILES["upload_file"]['size']);
+
     die(json_encode($number));
+    //echo $number;
 }
 
+function addToDb($link, $big, $small, $size){
+    $query = mysqli_query($link, "INSERT INTO `images` (`id`, `path_big`, `path_small`, `size`, `data_create`, `views`) VALUES (NULL, '$big', '$small', $size, current_timestamp(), '0')");
+}
 
 function imageresize($outfile, $infile, $neww, $newh, $quality)
 {
