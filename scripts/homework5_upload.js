@@ -36,8 +36,6 @@ $submit.click((e) => {
 const $gallery = $(".photos");
 
 function renderPhoto(num) {
-    if (num < 10)
-        num = '0' + num;
     $gallery.append(`
             <a href="homework5-show.php?name=big${num}">
                 <img class="small-image" src="img/small/small${num}.jpg" alt="small${num}" data-number="${num}" id="small${num}">    

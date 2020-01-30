@@ -3,32 +3,18 @@
 function renderGallery($link)
 {
     $query = mysqli_query($link, "SELECT * FROM images");
-    $data = mysqli_fetch_assoc($query);
+    $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $result = "";
-//    print_r($data);
-    foreach ($data as $img){
+    foreach ($data as $photo){
+        $id = $photo['id'];
+        $path = $photo['path'];
+
         $result .=
-            "<a href=\"homework5-show.php?name=big$photo\">
-                <img class=\"small-image\" src=\"img/small/small$photo.jpg\" alt=\"small$photo\" data-number=\"$photo\">
+            "<a href=\"homework5-show.php?name=big$id\">
+                <img class=\"small-image\" src=\"$path\" alt=\"small$id\" data-number=\"$id\">
             </a>";
     }
-
     return $result;
-
-//    $photos = scandir("img/small");
-//    $result = "";
-//    for ($i = 2; $i < count($photos); $i++) {
-//        $photo = $i - 2;
-//        if ($photo < 10) {
-//            $photo = "0" . $photo;
-//        }
-//
-//        $result .=
-//            "<a href=\"homework5-show.php?name=big$photo\">
-//                <img class=\"small-image\" src=\"img/small/small$photo.jpg\" alt=\"small$photo\" data-number=\"$photo\">
-//            </a>";
-//    }
-//    return $result;
 }
 
 require_once("homework5-config.php");
