@@ -12,37 +12,34 @@ if (move_uploaded_file($_FILES["upload_file"]["tmp_name"], $path_big)) {
     imageresize($path_small, $path_big, 273, 153, 100);
 }
 die(json_encode($number));
-//echo $number;
-
 
 function addToDb($link, $size)
 {
-
+    //узнаём количество записей в базе
     $query = mysqli_query($link, "SELECT COUNT(*) FROM `images`");
     $count = mysqli_fetch_row($query)[0];
 
-//    if(!$count) {//нет записей
-        //ТУТ БАГ С ПЕРВОЙ ЗАПИСЬЮ .РАЗБИРАЮСЬ.
-//        $query = mysqli_query($link, "INSERT INTO `images` (`id`) VALUES (NULL)");
-//        $data = mysqli_fetch_assoc($query);
-//        $number = $data["MAX(`id`)"];
-//        $path = "img/small/small$number.jpg";
-//            $path = 'qqqqqqqqqqq';
-
-//        $query = mysqli_query($link, "UPDATE `images` SET `path` = '$path', `size` = '$size' WHERE `images`.`id` = '$number'");
-//        $query = mysqli_query($link, "UPDATE `images` SET `path` = '123', `size` = '$size', `data_create` = current_timestamp(), `views` = '0' WHERE `images`.`id` = '$number'");
-
-
-//    } else {//есть записи
+    if(!$count){//записей нет
+        //сделаем новую запись, чтобы узнать id присвоенный БД
+        $query = mysqli_query($link, "INSERT INTO `images` (`id`) VALUES (NULL)");
+        //получим присвоенный id
+        $query = mysqli_query($link, "SELECT MAX(`id`) FROM `images`");
         $data = mysqli_fetch_assoc($query);
-        $number = $data["MAX(`id`)"] + 1;
-        $path = "img/small/small$number.jpg";
-        $query = mysqli_query($link, "INSERT INTO `images` (`id`, `path`, `size`, `data_create`, `views`) VALUES (NULL, '$path', '$size', current_timestamp(), '0')");
-//    }
-
+        $id = $data["MAX(`id`)"];
+        //изменим запись
+        $path = "img/small/small$id.jpg";
+        $query = mysqli_query($link, "UPDATE `images` SET `path` = '$path', `size` = '$size', `data_create` = current_timestamp() WHERE `id` = '$id'");
+        return $id;
+    }
+    //записи есть
     $query = mysqli_query($link, "SELECT MAX(`id`) FROM `images`");
-    return $number;
+    $data = mysqli_fetch_assoc($query);
+    $id = $data["MAX(`id`)"] + 1;
+    $path = "img/small/small$id.jpg";
+    $query = mysqli_query($link, "INSERT INTO `images` (`id`, `path`, `size`, `data_create`) VALUES (NULL, '$path', '$size', current_timestamp())");
+    return $id;
 }
+
 
 function imageresize($outfile, $infile, $neww, $newh, $quality)
 {
