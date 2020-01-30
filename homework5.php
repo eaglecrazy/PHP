@@ -10,27 +10,28 @@
 </head>
 <body>
 <div class="photos">
-<!--  генерация галереи  -->
-<?php require_once("homework4-gallery.php")?>
+
+    <?php
+    require_once("homework5-gallery.php")
+    ?>
 </div>
 <hr>
 
-<!-- Почему то у меня не отправляется файл есть указать method="post", нужны большие буквы чтобы работало. Почему? -->
-<form action="homework4-add-file.php" method="POST" enctype="multipart/form-data">
+
+<form action="homework5-add-file.php" method="POST" enctype="multipart/form-data">
     <label for="#file-input">Загрузка файла на сервер.</label><br>
     <input type="file" id="file-input" name="file-input" accept=".jpg"><br>
     <input type="submit" id="submit">
 </form>
 
 
-
 <div class="modal hidden" id="modal">
     <img id="big-image" src="#" alt="">
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- скрипт модального окна -->
+
 <script src="scripts/gallery.js"></script>
-<script src="scripts/homework4_upload.js"></script>
+<script src="scripts/homework5_upload.js"></script>
 </body>
 </html>
 

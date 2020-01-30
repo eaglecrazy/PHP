@@ -13,7 +13,6 @@ if ($_FILES["upload_file"]['size'] > 3000000) {
     if (move_uploaded_file($_FILES["upload_file"]["tmp_name"], $path_big)) {
         imageresize($path_small, $path_big, 273, 153, 100);
     }
-//  Почему для возврата успешного статуса AJAX-запроса в этой строке обязательно "json_encode()" ?
     die(json_encode($number));
 }
 
