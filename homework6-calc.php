@@ -2,7 +2,7 @@
 $title = "Calc";
 $header = "";
 $footer = "";
-$styles = 'styles/homework6-calc-style.css';
+$styles = '<link rel="stylesheet" href="styles/homework6-calc-style.css">';
 $scripts = '<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="scripts/homework6-calc.js"></script>';
 

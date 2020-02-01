@@ -11,7 +11,7 @@
 <body>
 <div class="photos">
 <!--  генерация галереи  -->
-<?php require_once("homework4-gallery.php")?>
+<?php require_once("homework4-gallery.php") ?>
 </div>
 <hr>
 
