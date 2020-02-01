@@ -139,7 +139,7 @@ body {
 }
 
 .form-add-input:last-child {
-    margin-bottom: 15px;
+    margin: 15px;
 }
 
 .form-label {

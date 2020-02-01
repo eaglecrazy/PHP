@@ -2,9 +2,9 @@
 
 require_once('homework6-shop-config.php');
 require_once('components/homework6-shop-header.php');
-require_once('components/homework6-shop-main.php');
+require_once('components/homework6-shop-admin.php');
 require_once('components/homework6-shop-footer.php');
-$title = "PHP Shop. Index";
+$title = "PHP Shop. Admin";
 
 //$footer = "";
 //$scripts = '<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
