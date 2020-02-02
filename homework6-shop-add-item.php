@@ -1,5 +1,5 @@
 <?php
-require_once('homework6-shop-s-config.php');
+require_once('homework6-shop-db-config.php');
 
 if (isset($_POST)) {
     if ($_FILES['upload_file']['size'] > 10000000) {

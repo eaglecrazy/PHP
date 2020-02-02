@@ -1,6 +1,6 @@
 <?php
 
-require_once('server/homework6-shop-s-config.php');
+require_once('homework6-shop-db-config.php');
 $query = mysqli_query($link, 'SELECT * FROM items ORDER BY id ');
 $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
