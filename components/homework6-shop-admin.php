@@ -1,14 +1,14 @@
 <?php
-$main = '<form class="add-item" action="../server/homework6-shop-s-add-item.php" method="POST" enctype="multipart/form-data">
+$main_start = '<form class="add-item" action="../server/homework6-shop-s-add-item.php" method="POST" enctype="multipart/form-data">
         <h2 class="form-heading">Добавление товара</h2>
         <label class="form-label" for="name">Наименование товара</label>
-        <input type="text" name="name" id="name" class="form-add-input" value="Имя товара">
+        <input type="text" name="name" id="name" class="form-add-input" required>
         <label class="form-label" for="cost">Стоимость товара</label>
-        <input type="number" name="cost" id="cost" class="form-add-input" value="100">
+        <input type="number" name="cost" id="cost" class="form-add-input" required>
         <label class="form-label" for="description">Описание товара</label>
-        <textarea name="description" id="description" cols="30" rows="10" class="form-add-input">description</textarea>
+        <textarea name="description" id="description" cols="30" rows="10" class="form-add-input" required></textarea>
         <label class="form-label" for="photo">Загрузка фотографии</label>
-        <input type="file" name="photo" id="photo" class="form-add-input">
+        <input type="file" name="photo" id="photo" class="form-add-input" accept="image/jpeg" required>
         <input type="submit" value="Добавить товар" class="form-add-input">
     </form>
     <table class="items-table">
@@ -19,13 +19,24 @@ $main = '<form class="add-item" action="../server/homework6-shop-s-add-item.php"
             <th class="table-heading">Фото</th>
             <th class="table-heading">Изменить</th>
             <th class="table-heading">Удалить</th>
-</tr>
-<tr>
-    <td class="table-cell table-cell-text">Имя 1</td>
-    <td class="table-cell table-cell-text">100</td>
-    <td class="table-cell table-cell-text">Описание 1</td>
-    <td class="table-cell table-cell-image"><img src="../img/item.png" alt="item"></td>
-    <td class="table-cell table-cell-edit"><a class="table-link-edit" href="#"><img src="../img/edit.png" alt="edit"></a></td>
-    <td class="table-cell table-cell-delete"><a class="table-link-delete" href="#"><img src="../img/delete.png" alt="delete"></a></td>
-</tr>
-</table>';
+</tr>';
+$main_end = '</table>';
+$main_table = '';
+
+require_once('server/homework6-shop-s-config.php');
+$query = mysqli_query($link, 'SELECT * FROM items ORDER BY id ');
+$data = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+foreach ($data as $item) {
+    $main_table .=
+        "<tr>
+    <td class=\"table-cell table-cell-text\">$item[name]</td>
+    <td class=\"table-cell table-cell-text\">$item[cost]</td>
+    <td class=\"table-cell table-cell-text\">$item[description]</td>
+    <td class=\"table-cell table-cell-image\"><img src=\"../img/small/$item[id].$item[extension]\" alt=\"item\"></td>
+    <td class=\"table-cell table-cell-edit\"><a class=\"table-link-edit\" href=\"#\"><img src=\"../img/edit.png\" alt=\"edit\"></a></td>
+    <td class=\"table-cell table-cell-delete\"><a class=\"table-link-delete\" href=\"#\"><img src=\"../img/delete.png\" alt=\"delete\"></a></td>
+</tr>";
+}
+
+$main = $main_start . $main_table . $main_end;
