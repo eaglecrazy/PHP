@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 02 2020 г., 19:18
--- Версия сервера: 5.6.43
+-- Время создания: Фев 03 2020 г., 14:29
+-- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -33,7 +33,7 @@ CREATE TABLE `items` (
   `name` varchar(256) NOT NULL,
   `cost` int(11) NOT NULL,
   `description` text NOT NULL,
-  `datetime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `datetime` datetime NOT NULL DEFAULT current_timestamp(),
   `extension` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -47,8 +47,8 @@ INSERT INTO `items` (`id`, `name`, `cost`, `description`, `datetime`, `extension
 ('castlevania_ii', 'Castlevania II', 256, 'Игра для NES', '2020-02-01 21:41:57', 'jpg'),
 ('castlevania_iii', 'Castlevania III', 512, 'Игра для NES', '2020-02-01 21:42:28', 'jpg'),
 ('super_castlevania_iv', 'Super Castlevania IV', 1024, 'Игра для SNES', '2020-02-01 21:43:13', 'jpg'),
-('castlevania_dracula_x', 'Castlevania Dracula X', 4096, 'Игра для SNES', '2020-02-02 13:03:14', 'jpg'),
-('castlevania_rondo_of_blood', 'Castlevania Rondo of Blood', 8192, 'Игра для PC Engine', '2020-02-02 13:12:15', 'jpg');
+('castlevania_dracula_x', 'Castlevania Dracula X', 4096, 'Игра для SNES', '2020-02-02 22:41:55', 'jpg'),
+('castlevania_rondo_of_blood', 'Castlevania Rondo of Blood', 8192, 'Игра для PC Engine', '2020-02-02 22:42:29', 'jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

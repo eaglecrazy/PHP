@@ -4,7 +4,7 @@ $main_start = '<form class="add-item" action="../homework6-shop-add-item.php" me
         <label class="form-label" for="name">Наименование товара</label>
         <input type="text" name="name" id="name" class="form-add-input" required>
         <label class="form-label" for="cost">Стоимость товара</label>
-        <input type="number" name="cost" id="cost" class="form-add-input" required>
+        <input type="number" name="cost" id="cost" class="form-add-input" min="0" required>
         <label class="form-label" for="description">Описание товара</label>
         <textarea name="description" id="description" cols="30" rows="10" class="form-add-input" required></textarea>
         <label class="form-label" for="photo">Загрузка фотографии</label>
