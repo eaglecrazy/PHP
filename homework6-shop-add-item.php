@@ -1,12 +1,13 @@
 <?php
 require_once('homework6-shop-db-config.php');
+require_once('homework6-shop-functions.php');
 
 if (isset($_POST)) {
     if ($_FILES['upload_file']['size'] > 10000000) {
         die("Размер файла более чем 10 Мегабайт.");
     }
     //ограничим тип принимаемого файла
-    if($_FILES['photo']['type'] != 'image/jpeg'){
+    if ($_FILES['photo']['type'] != 'image/jpeg') {
         die("Загружаемый файл не является файлом jpeg.");
     }
 
@@ -16,7 +17,7 @@ if (isset($_POST)) {
     $cost = $_POST['cost'];
     $description = $_POST['description'];
 
-    //проверим нет ли в базе файла с id = $id;
+    //проверим нет ли в базе записи с id = $id;
     $query = mysqli_query($link, "SELECT id FROM items WHERE id='$id'");
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     if (count($data)) {
@@ -40,72 +41,4 @@ if (isset($_POST)) {
 
     //вернёмся обратно в админку
     header('Location: ../homework6-shop-admin-page.php');
-}
-
-//получение расширения файла;
-function getExtension($fileName)
-{
-    return substr($fileName, strrpos($fileName, '.'));
-}
-
-//перевод названия в транслит без пробелов
-function getUrlName($str)
-{
-    $transliteration = [
-        'ё' => 'yo',
-        'й' => 'y',
-        'ц' => 'ts',
-        'у' => 'u',
-        'к' => 'k',
-        'е' => 'e',
-        'н' => 'n',
-        'г' => 'g',
-        'ш' => 'sh',
-        'щ' => 'sch',
-        'з' => 'z',
-        'х' => 'kh',
-        'ф' => 'f',
-        'ы' => 'y',
-        'в' => 'v',
-        'а' => 'a',
-        'п' => 'p',
-        'р' => 'r',
-        'о' => 'o',
-        'л' => 'l',
-        'д' => 'd',
-        'ж' => 'zh',
-        'э' => 'e',
-        'я' => 'ya',
-        'ч' => 'ch',
-        'с' => 's',
-        'м' => 'm',
-        'и' => 'i',
-        'т' => 't',
-        'б' => 'b',
-        'ю' => 'yu'
-    ];
-    $s = str_replace(' ', '_', $str);
-    $s = strtr(mb_strtolower($s), $transliteration);
-    //удалим недопустимые символы
-    return preg_replace("/[^a-z0-9\_\-\.]/i", '', $s);
-}
-
-
-//изменение размеров изображения
-function imageResize($outfile, $infile, $neww, $newh, $quality)
-{
-    $im = imagecreatefromjpeg($infile);
-    $k1 = $neww / imagesx($im);
-    $k2 = $newh / imagesy($im);
-    $k = $k1 > $k2 ? $k2 : $k1;
-
-    $w = intval(imagesx($im) * $k);
-    $h = intval(imagesy($im) * $k);
-
-    $im1 = imagecreatetruecolor($w, $h);
-    imagecopyresampled($im1, $im, 0, 0, 0, 0, $w, $h, imagesx($im), imagesy($im));
-
-    imagejpeg($im1, $outfile, $quality);
-    imagedestroy($im);
-    imagedestroy($im1);
 }

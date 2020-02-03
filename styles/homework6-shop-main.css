@@ -132,6 +132,18 @@ body {
     text-align: left;
 }
 
+.edit-item {
+    border: solid 2px #333333;
+    border-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.edit-item:last-child {
+    border-bottom: solid 2px #333333;
+}
+
 .items-list {
     border: solid 2px #333333;
     margin: 15px auto;
@@ -181,6 +193,10 @@ body {
     text-align: left;
 }
 
+.form-edit-image{
+    margin: 15px;
+}
+
 .table-cell-image {
     width: 135px;
 }
@@ -194,7 +210,6 @@ body {
 
 .table-link-edit,
 .table-link-delete {
-    display: block;
     width: 100%;
     height: 100%;
     display: flex;
@@ -257,4 +272,8 @@ body {
 
 .item-info-button{
     margin: auto auto 20px auto;
+}
+
+.hidden {
+    display: none;
 }

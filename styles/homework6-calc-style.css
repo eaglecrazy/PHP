@@ -1,21 +1,19 @@
-.select, .operand, .equal, .result
-{
+.select, .operand, .equal, .result {
     font-size: 20px;
 }
 
-.operand, .result{
+.operand, .result {
     width: 220px;
     padding: 0 5px;
 }
 
-.fieldset{
+.fieldset {
     padding: 10px;
     text-align: center;
     margin-bottom: 2px;
 }
 
-.sign, .submit{
+.sign, .submit {
     width: 150px;
     font-size: 20px;
 }
-
