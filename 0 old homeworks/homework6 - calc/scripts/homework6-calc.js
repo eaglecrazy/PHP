@@ -32,7 +32,7 @@ $('#divide').click((e) => {
 $('.form').submit((e) => {
     e.preventDefault();
 
-    $.get("homework6-calc-server.php",
+    $.get("homework6-homework6 - calc-server.php",
         {
             op1: $operands[0].value,
             op2: $operands[1].value,

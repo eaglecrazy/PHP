@@ -1,5 +1,5 @@
 <?php
-require_once('homework6-shop-db-config.php');
+require_once('db-config.php');
 
 if (isset($_GET)) {
     $id = $_GET['id'];
@@ -18,5 +18,5 @@ if (isset($_GET)) {
     //удалим запись в БД
     $query = mysqli_query($link, "DELETE FROM items WHERE id='$id'");
     //вернёмся обратно в админку
-    header('Location: ../homework6-shop-admin-page.php');
+    header('Location: ../admin-page.php');
 }

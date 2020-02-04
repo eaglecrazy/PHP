@@ -27,6 +27,15 @@ body {
     margin-bottom: 10px;
 }
 
+.menuRight{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cartButton{
+    margin-left: 10px;
+}
+
 .header .menu .button {
     margin-right: 10px;
 }
@@ -186,7 +195,6 @@ body {
     padding: 5px;
     border: 1px solid black;
     vertical-align: middle;
-
 }
 
 .table-cell-text {
@@ -275,5 +283,63 @@ body {
 }
 
 .hidden {
-    display: none;
+display: none;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    box-sizing: border-box;
+    background-color: #b4b4b4;
+    border: #6f6f6f solid 5px;
+    box-shadow: 0 0 10px #6f6f6f;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.modal-close {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 25px;
+    transition: transform 0.1ms linear;
+}
+
+.modal-close:hover{
+    transform: scale(1.1);
+}
+
+.modal-input-wrap{
+    margin: 15px 0;
+    width: 100%;
+    text-align: left;
+}
+
+#login{
+    margin-left: 12px;
+}
+
+.modal-heading{
+    font-weight: 700;
+}
+
+.modal-form{
+    text-align: center;
+    padding: 10px 40px 5px 40px;
+    border-bottom: solid 2px #333333;
+}
+
+#registration-button{
+    margin: 15px;
 }

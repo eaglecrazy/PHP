@@ -1,6 +1,6 @@
 <?php
 
-require_once('homework6-shop-db-config.php');
+require_once('db-config.php');
 $id = $_GET['id'];
 $query = mysqli_query($link, "SELECT * FROM items WHERE id='$id'");
 $data = mysqli_fetch_all($query, MYSQLI_ASSOC);

@@ -2,12 +2,12 @@
 $title = "Calc";
 $header = "";
 $footer = "";
-$styles = '<link rel="stylesheet" href="../styles/homework6-calc-style.css">';
+$styles = '<link rel="stylesheet" href="styles/homework6-homework6 - calc-style.css">';
 $scripts = '<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="../scripts/homework6-calc.js"></script>';
+<script src="scripts/homework6-homework6 - calc.js"></script>';
 
 $main =
-'<form action="homework6-calc-server.php" method="GET" class="form">
+'<form action="homework6-homework6 - calc-server.php" method="GET" class="form">
 <fieldset class="fieldset">
     <input type="number" class="operand" name="operand[]" value="2">
     <select name="select" class="select">
@@ -29,7 +29,7 @@ $main =
     </fieldset>
 </form>';
 
-$tpl = file_get_contents('../homework6-template.tpl');
+$tpl = file_get_contents('../template.tpl');
 $patterns = ['/{title}/', '/{styles}/', '/{header}/', '/{main}/', '/{footer}/', '/{scripts}/'];
 $replace = [$title, $styles, $header, $main, $footer, $scripts];
 echo preg_replace($patterns, $replace, $tpl);

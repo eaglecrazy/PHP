@@ -1,6 +1,6 @@
 <?php
-require_once('homework6-shop-db-config.php');
-require_once('homework6-shop-functions.php');
+require_once('db-config.php');
+require_once('functions.php');
 
 if (isset($_POST)) {
     if ($_FILES['upload_file']['size'] > 10000000) {
@@ -40,5 +40,5 @@ if (isset($_POST)) {
     $query = mysqli_query($link, "INSERT INTO items (id, name, cost, description, extension) VALUES ('$id', '$name', '$cost', '$description', '$extension')");
 
     //вернёмся обратно в админку
-    header('Location: ../homework6-shop-admin-page.php');
+    header('Location: ../admin-page.php');
 }

@@ -1,6 +1,6 @@
 <?php
 
-require_once('homework6-shop-db-config.php');
+require_once('db-config.php');
 $query = mysqli_query($link, 'SELECT * FROM items ORDER BY id ');
 $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -14,7 +14,7 @@ foreach ($data as $item) {
                                                                                height=\"156\" alt=\"$item[name]\"
                                                                                class=\"item-image\">
             <p class=\"goods-item-text\">Цена: $item[cost] рублей</p>
-            <a href=\"homework6-shop-item-page.php?id=$item[id]\" class=\"button\">Подробнее</a>
+            <a href=\"item-page.php?id=$item[id]\" class=\"button\">Подробнее</a>
         </div>";
 }
 $main = $main_start . $main_content . $main_end;

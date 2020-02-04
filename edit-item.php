@@ -1,6 +1,6 @@
 <?php
-require_once('homework6-shop-db-config.php');
-require_once('homework6-shop-functions.php');
+require_once('db-config.php');
+require_once('functions.php');
 
 if (isset($_GET)) {
     //имя
@@ -11,7 +11,7 @@ if (isset($_GET)) {
 
         //если имя не менялось
         if ($old_id === $new_id) {
-            header("Location: ../homework6-shop-admin-edit-page.php?id=$old_id");
+            header("Location: ../admin-edit-page.php?id=$old_id");
         }
 
         //выясним нет ли такой записи в бд
@@ -36,17 +36,17 @@ if (isset($_GET)) {
         $query = mysqli_query($link, "UPDATE items SET id='$new_id', name='$new_name' WHERE id='$old_id'");
 
         //вернёмся  на страничку
-        header("Location: ../homework6-shop-admin-edit-page.php?id=$new_id");
+        header("Location: ../admin-edit-page.php?id=$new_id");
     } else if (isset($_GET['cost'])) {
         $id = $_GET['id'];
         $cost = $_GET['cost'];
         $query = mysqli_query($link, "UPDATE items SET cost='$cost' WHERE id='$id'");
-        header("Location: ../homework6-shop-admin-edit-page.php?id=$id");
+        header("Location: ../admin-edit-page.php?id=$id");
     } else if (isset($_GET['description'])) {
         $id = $_GET['id'];
         $description = $_GET['description'];
         $query = mysqli_query($link, "UPDATE items SET description='$description' WHERE id='$id'");
-        header("Location: ../homework6-shop-admin-edit-page.php?id=$id");
+        header("Location: ../admin-edit-page.php?id=$id");
     } else if (isset($_POST)) {
         if ($_FILES['upload_file']['size'] > 10000000) {
             die("Размер файла более чем 10 Мегабайт.");
@@ -76,6 +76,6 @@ if (isset($_GET)) {
             imageresize($path_small, $path_big, 250, 156, 100);
         }
         //вернёмся обратно
-        header("Location: ../homework6-shop-admin-edit-page.php?id=$id");
+        header("Location: ../admin-edit-page.php?id=$id");
     }
 }

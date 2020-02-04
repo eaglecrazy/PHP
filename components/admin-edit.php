@@ -1,6 +1,6 @@
 <?php
 
-require_once('homework6-shop-db-config.php');
+require_once('db-config.php');
 
 if (isset($_GET)) {
     $id = $_GET['id'];
@@ -19,7 +19,7 @@ $main = "<h2 class=\"form-heading\">Изменение товара $name</h2>";
 //Правильно ли я сделал тут добавив скрытое поле с id товара, чтобы id тоже передавался в скрипт обработчик?
 //Или можно было сделать как то лучше?
 $edit_name =
-    "<form class=\"edit-item\" action=\"homework6-shop-edit-item.php\" method=\"GET\">
+    "<form class=\"edit-item\" action=\"edit-item.php\" method=\"GET\">
         <label class=\"form-label\" for=\"name\">Наименование товара</label>
         <input type=\"text\" name=\"name\" id=\"name\" class=\"form-add-input\" value=\"$name\" required>
         <input type=\"text\" name=\"id\" id=\"id\" class=\"hidden\" value=\"$id\">
@@ -27,7 +27,7 @@ $edit_name =
     </form>";
 
 $edit_cost =
-    "<form class=\"edit-item\" action=\"homework6-shop-edit-item.php\" method=\"GET\">
+    "<form class=\"edit-item\" action=\"edit-item.php\" method=\"GET\">
         <label class=\"form-label\" for=\"name\">Стоимость товара</label>
         <input type=\"number\" name=\"cost\" id=\"cost\" class=\"form-add-input\" value=\"$cost\" min=\"0\"  required>
         <input type=\"text\" name=\"id\" id=\"id\" class=\"hidden\" value=\"$id\">
@@ -35,7 +35,7 @@ $edit_cost =
     </form>";
 
 $edit_description =
-    "<form class=\"edit-item\" action=\"homework6-shop-edit-item.php\" method=\"GET\">
+    "<form class=\"edit-item\" action=\"edit-item.php\" method=\"GET\">
         <label class=\"form-label\" for=\"name\">Описание товара</label>
         <textarea name=\"description\" id=\"description\" cols=\"30\" rows=\"10\" class=\"form-add-input\"  required>$description</textarea>
         <input type=\"text\" name=\"id\" id=\"id\" class=\"hidden\" value=\"$id\">
@@ -43,7 +43,7 @@ $edit_description =
     </form>";
 
 $edit_photo =
-    "<form class=\"edit-item\" action=\"homework6-shop-edit-item.php\" method=\"POST\" enctype=\"multipart/form-data\">
+    "<form class=\"edit-item\" action=\"edit-item.php\" method=\"POST\" enctype=\"multipart/form-data\">
         <label class=\"form-label\" for=\"photo\">Фотография товара</label>
         <img class=\"form-edit-image\" src=\"img/small/$id.jpg\" alt=\"$name\" >
         <input type=\"file\" name=\"photo\" id=\"photo\" class=\"form-add-input\"  required>
