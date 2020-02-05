@@ -18,5 +18,5 @@ if (isset($_GET)) {
     //удалим запись в БД
     $query = mysqli_query($link, "DELETE FROM items WHERE id='$id'");
     //вернёмся обратно в админку
-    header('Location: ../admin-page.php');
+    header('Location: ../pages/admin-page.php');
 }

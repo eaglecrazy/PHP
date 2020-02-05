@@ -10,8 +10,20 @@ else if ($_SERVER['REQUEST_URI'] === LINK_CART)
 else if ($_SERVER['REQUEST_URI'] === LINK_FORM)
     $link_form = LINK_EMPTY;
 
-$scripts .= '<script defer src="scripts/modal-window.js"></script>';
+if($active_user) {//авторизация была пройдена
+    $enter_exit = "
+        <form action=\"../server/exit.php\">
+            <input type=\"submit\" class=\"button headerButton\" value=\"Выход\">
+        </form>";
+    $user = "<div class=\"user-info-wrap\"><div class=\"user-info\">$active_user</div></div>";
+} else {//авторизация не пройдена
+    $enter_exit = "<button class=\"button headerButton\" id=\"button-enter\">Вход</button>";
+}
+
+
+$scripts .= '<script defer src="../scripts/modal-window.js"></script>';
 $header = "
+    $user
     <div class=\"menuLeft\">
         <a href=\"$link_index\" class=\"button indexButton\">Магазин</a>
         <a href=\"$link_form\" class=\"button formButton hidden\">Обратная связь</a>
@@ -20,8 +32,8 @@ $header = "
         <form class=\"searchForm hidden\"><input type=\"text\" placeholder=\"\" class=\"searchInput form-input\">
             <button class=\"button searchButton\">Поиск</button>
         </form>
-        <button class=\"button cartButton\" id=\"button-lk\">Личный кабинет</button>
-        <a  href=\"$link_cart\" class=\"button cartButton\">Корзина</a>
+        <a  href=\"$link_cart\" class=\"button headerButton\">Корзина</a>
+        $enter_exit
     </div>
     <div class=\"modal hidden\" id=\"modal\"></div>";
 

@@ -40,5 +40,5 @@ if (isset($_POST)) {
     $query = mysqli_query($link, "INSERT INTO items (id, name, cost, description, extension) VALUES ('$id', '$name', '$cost', '$description', '$extension')");
 
     //вернёмся обратно в админку
-    header('Location: ../admin-page.php');
+    header('Location: ../pages/admin-page.php');
 }

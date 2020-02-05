@@ -1,5 +1,5 @@
 <?php
-$main_start = '<form class="add-item" action="../add-item.php" method="POST" enctype="multipart/form-data">
+$main_start = '<form class="add-item" action="../server/add-item-page.php" method="POST" enctype="multipart/form-data">
         <h2 class="form-heading">Добавление товара</h2>
         <label class="form-label" for="name">Наименование товара</label>
         <input type="text" name="name" id="name" class="form-add-input" required>
@@ -23,7 +23,7 @@ $main_start = '<form class="add-item" action="../add-item.php" method="POST" enc
 $main_end = '</table>';
 $main_table = '';
 
-require_once('db-config.php');
+require_once('../server/db-config.php');
 $query = mysqli_query($link, 'SELECT * FROM items ORDER BY id ');
 $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
@@ -34,8 +34,8 @@ foreach ($data as $item) {
     <td class=\"table-cell table-cell-text\">$item[cost]</td>
     <td class=\"table-cell table-cell-text\">$item[description]</td>
     <td class=\"table-cell table-cell-image\"><img src=\"../img/small/$item[id].$item[extension]\" alt=\"item\"></td>
-    <td class=\"table-cell table-cell-edit\"><a class=\"table-link-edit\" href=\"admin-edit-page.php?id=$item[id]\"><img src=\"../img/edit.png\" alt=\"edit\"></a></td>
-    <td class=\"table-cell table-cell-delete\"><a class=\"table-link-delete\" href=\"delete-item.php?id=$item[id]\"><img src=\"../img/delete.png\" alt=\"delete\"></a></td>
+    <td class=\"table-cell table-cell-edit\"><a class=\"table-link-edit\" href=\"../pages/admin-edit-page.php?id=$item[id]\"><img src=\"../img/edit.png\" alt=\"edit\"></a></td>
+    <td class=\"table-cell table-cell-delete\"><a class=\"table-link-delete\" href=\"../server/delete-item-page.php?id=$item[id]\"><img src=\"../img/delete.png\" alt=\"delete\"></a></td>
 </tr>";
 }
 

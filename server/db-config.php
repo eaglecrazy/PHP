@@ -1,7 +1,7 @@
 <?php
 
-const SMALL = 'img/small/';
-const BIG = 'img/big/';
+const SMALL = '../img/small/';
+const BIG = '../img/big/';
 
 const SERVER = "localhost:3306";
 const LOGIN = "root";

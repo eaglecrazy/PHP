@@ -15,6 +15,20 @@ body {
     background-color: #f2f2f2;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.user-info-wrap{
+    width: 100%;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.user-info{
+    font-size: 20px;
+    width: 180px;
+    display: inline-block;
+    text-align: center;
 }
 
 .footer .button {
@@ -32,7 +46,7 @@ body {
     justify-content: flex-end;
 }
 
-.cartButton{
+.headerButton{
     margin-left: 10px;
 }
 
@@ -61,8 +75,7 @@ body {
 
 .button:hover {
     outline: none;
-    background-color: rgb(69, 69, 69, .8);
-
+    background-color: rgba(69, 69, 69, .8);
 }
 
 .button:active {
@@ -283,7 +296,7 @@ body {
 }
 
 .hidden {
-display: none;
+    display: none;
 }
 
 .modal {
@@ -296,11 +309,7 @@ display: none;
     border: #6f6f6f solid 5px;
     box-shadow: 0 0 10px #6f6f6f;
     font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: auto;
+    text-align: center;
 }
 
 .modal-close {
