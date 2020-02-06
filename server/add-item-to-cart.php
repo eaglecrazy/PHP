@@ -17,7 +17,7 @@ $query = mysqli_query($link, "SELECT * FROM cart WHERE client='$client' AND item
 if (mysqli_num_rows($query)) {//если есть
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $count = $data[0]['count'] + 1;
-    $query = mysqli_query($link, "UPDATE cart SET count=$count WHERE client='$client'");
+    $query = mysqli_query($link, "UPDATE cart SET count=$count WHERE client='$client' AND item_id = '$item'");
 } else {//если нет
     $query = mysqli_query($link, "INSERT INTO `cart`(`client`, `item_id`, `count`) VALUES ('$client', '$item', 1)");
 }

@@ -18,9 +18,9 @@ if (isset($_POST)) {
     }
 
     $query = mysqli_query($link, "INSERT INTO clients(login, password) VALUES ('$login', '$password')");
-    setcookie("$login-login", $login, time()+3600, '/');
-    setcookie("$login-password", $password, time()+3600, '/');
-    setcookie('active-user', $login, time()+3600, '/');
+    setcookie("$login-login", $login, time()+3600*24*7, '/');
+    setcookie("$login-password", $password, time()+3600*24*7, '/');
+    setcookie('active-user', $login, time()+3600*24*7, '/');
 
     header("Location: ../pages/index.php");
 }

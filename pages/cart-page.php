@@ -1,7 +1,9 @@
 <?php
 require_once('../config.php');
 if(isset($_GET)) {
-    $scripts = "<script defer src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>";
+    $scripts = "
+        <script defer src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>
+        <script defer src=\"../scripts/cart.js\"></script>";
     require_once('../components/header.php');
     require_once('../components/cart.php');
     require_once('../components/footer.php');
