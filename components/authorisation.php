@@ -13,5 +13,4 @@ echo
     </fieldset>
     <input type=\"submit\" value=\"войти\" class=\"button\">
 </form>
-<a href=\"registration-page.php\" class=\"button\" id=\"registration-button\">регистрация</a>
-    ";
+<a href=\"../pages/registration-page.php\" class=\"button\" id=\"registration-button\">регистрация</a>";

@@ -5,9 +5,6 @@ body {
     font-family: "Arial MT", sans-serif;
 }
 
-#app {
-    min-width: 1000px;
-}
 
 .header {
     min-height: 40px;
@@ -137,20 +134,14 @@ body {
 }
 
 
-.goods-list-info {
-    font-weight: 700;
-    font-size: 30px;
-    color: #333333;
-}
-
 
 .searchForm {
     display: inline-block;
 }
 
 
-.add-item {
-    border: solid 2px #333333;
+.form {
+    border: solid 2px #b4b4b4;
     text-align: left;
 }
 
@@ -166,10 +157,6 @@ body {
     border-bottom: solid 2px #333333;
 }
 
-.items-list {
-    border: solid 2px #333333;
-    margin: 15px auto;
-}
 
 .form-add-input {
     display: block;
@@ -206,7 +193,7 @@ body {
 .table-heading,
 .table-cell {
     padding: 5px;
-    border: 1px solid black;
+    border: solid 2px #b4b4b4;
     vertical-align: middle;
 }
 
@@ -343,6 +330,10 @@ body {
     font-weight: 700;
 }
 
+.modal-message{
+    padding: 35px 45px;
+}
+
 .modal-form{
     text-align: center;
     padding: 10px 40px 5px 40px;
@@ -351,4 +342,37 @@ body {
 
 #registration-button{
     margin: 15px;
+}
+
+.order-table {
+    width: 85%;
+    border: solid 2px #b4b4b4;
+    margin: 15px auto 35px auto;
+    font-size: 18px;
+}
+
+.order-form{
+    border: solid 2px #b4b4b4;
+    width: 35%;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px;
+}
+
+.order-first-column{
+    width: 40%;
+}
+
+.order-column{
+    width: 10%;
+}
+
+.order-last-row{
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.order-button{
+    margin: 15px;
+    width: 406px;
 }

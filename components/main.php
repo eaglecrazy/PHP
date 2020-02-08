@@ -1,12 +1,6 @@
 <?php
-
-$var = "Мы ";
-$var .= "умеем. " . $var * 2;
-echo $var;
-
-
 require_once('../server/db-config.php');
-$query = mysqli_query($link, 'SELECT * FROM items ORDER BY id ');
+$query = mysqli_query($link, 'SELECT * FROM items ORDER BY id');
 $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 $main_start = '<div class="goods-list">';

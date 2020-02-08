@@ -21,7 +21,7 @@ if($active_user) {//авторизация была пройдена
 }
 
 
-$scripts .= '<script defer src="../scripts/modal-window.js"></script>';
+
 $header = "
     $user
     <div class=\"menuLeft\">

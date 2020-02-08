@@ -1,8 +1,9 @@
 <?php
+require_once('defense.php');
 require_once('db-config.php');
 
-if (isset($_GET)) {
-    $id = $_GET['id'];
+if ($_GET['id']) {
+    $id = def($_GET['id']);
     $query = mysqli_query($link, "SELECT * FROM items WHERE id='$id'");
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $extension = $data[0]['extension'];
