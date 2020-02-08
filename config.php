@@ -1,13 +1,13 @@
 <?php
-define("LINK_INDEX", "../pages/index.php");
-define("LINK_FORM", "#");
-define("LINK_CART", "../pages/cart-page.php");
-define("LINK_ADMIN", "../pages/admin-page.php");
-define("LINK_EMPTY", "#");
 
-$styles =
-    '<link rel="stylesheet" href="../styles/reset.css">
-    <link rel="stylesheet" href="../styles/main.css">';
+const LINK_INDEX = "../pages/index.php";
+const LINK_FORM = "#";
+const LINK_CART = "../pages/cart-page.php";
+const LINK_ADMIN = "../pages/admin-page.php";
+const LINK_EMPTY = "#";
+const SALT = "POsdfs459+:0dsjpOIGHf";;
+$styles = '';
+
 
 
 
@@ -20,8 +20,8 @@ if ($active_user && $_COOKIE["$active_user-login"] && $_COOKIE["$active_user-pas
     $login = $_COOKIE["$active_user-login"];
     $password = $_COOKIE["$active_user-password"];
     //проверим их корректность в БД
-    require_once('../server/db-config.php');
-    $query = mysqli_query($link, "SELECT * FROM clients WHERE login='$login' AND password='$password'");
+    require_once('server/db-config.php');
+    $query = mysqli_query($link, "SELECT * FROM users WHERE login='$login' AND password='$password'");
     //если запрос не дал результатов то
     if (!mysqli_num_rows($query)) {
         setcookie('active-user', '', time()+1, '/');

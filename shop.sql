@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 06 2020 г., 14:14
+-- Время создания: Фев 08 2020 г., 23:22
 -- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.3.2
 
@@ -40,31 +40,8 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`order_id`, `client`, `item_id`, `count`) VALUES
-(11, 'Бельмонт', 'castlevania_rondo_of_blood', 2),
-(12, 'Бельмонт', 'castlevania_iii', 2),
-(34, 'Саймон', 'castlevania_ii', 4),
-(38, 'Саймон', 'super_castlevania_iv', 2),
-(39, 'Саймон', 'castlevania_iii', 3);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `clients`
---
-
-CREATE TABLE `clients` (
-  `login` varchar(256) NOT NULL,
-  `password` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Дамп данных таблицы `clients`
---
-
-INSERT INTO `clients` (`login`, `password`) VALUES
-('user', '12345'),
-('Бельмонт', '12345'),
-('Саймон', '12345');
+(53, 'Дракула', 'castlevania_ii', 2),
+(58, 'Саймон', 'castlevaniaiii', 1);
 
 -- --------------------------------------------------------
 
@@ -86,11 +63,30 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `name`, `cost`, `description`, `datetime`, `extension`) VALUES
-('castlevania_ii', 'Castlevania II', 256, 'Игра для NES', '2020-02-01 21:41:57', 'jpg'),
-('castlevania_iii', 'Castlevania III', 512, 'Игра для NES', '2020-02-01 21:42:28', 'jpg'),
+('castlevaniaiii', 'Castlevania III', 512, 'Игра для NES', '2020-02-01 21:42:28', 'jpg'),
 ('castlevania_rondo_of_blood', 'Castlevania Rondo of Blood', 8192, 'Игра для PC Engine', '2020-02-02 22:42:29', 'jpg'),
 ('super_castlevania_iv', 'Super Castlevania IV', 1024, 'Игра для SNES', '2020-02-04 23:09:58', 'jpg'),
-('castlevania_bloodlines', 'Castlevania Bloodlines', 8192, 'Игра для SEGA', '2020-02-04 23:11:05', 'jpg');
+('castlevania', 'Castlevania', 128, 'Игра для NES', '2020-02-08 19:56:03', 'jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `users`
+--
+
+CREATE TABLE `users` (
+  `login` varchar(256) NOT NULL,
+  `password` varchar(256) NOT NULL,
+  `role` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`login`, `password`, `role`) VALUES
+('admin', '202cb962ac59075b964b07152d234b70POsdfs459+:0dsjpOIGHf', 'user'),
+('Саймон', '202cb962ac59075b964b07152d234b70POsdfs459+:0dsjpOIGHf', 'user');
 
 --
 -- Индексы сохранённых таблиц
@@ -103,9 +99,9 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Индексы таблицы `clients`
+-- Индексы таблицы `users`
 --
-ALTER TABLE `clients`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`login`);
 
 --
@@ -116,7 +112,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT для таблицы `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

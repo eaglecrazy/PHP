@@ -13,7 +13,6 @@
 }
 
 .cart-info {
-    background: #ddc4ff;
     min-width: 380px;
     max-width: 380px;
     width: 380px;
@@ -92,12 +91,4 @@
 
 .cart-item-cross:active {
     transform: scale(1);
-}
-
-.colors {
-    color: #f2f2f2;
-    color: #d8d8d8;
-    color: #989898;
-    color: #6c6262;
-    color: #333333;
 }

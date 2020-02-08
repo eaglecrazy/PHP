@@ -5,9 +5,6 @@ body {
     font-family: "Arial MT", sans-serif;
 }
 
-#app {
-    min-width: 1000px;
-}
 
 .header {
     min-height: 40px;
@@ -137,12 +134,6 @@ body {
 }
 
 
-.goods-list-info {
-    font-weight: 700;
-    font-size: 30px;
-    color: #333333;
-}
-
 
 .searchForm {
     display: inline-block;
@@ -166,10 +157,6 @@ body {
     border-bottom: solid 2px #333333;
 }
 
-.items-list {
-    border: solid 2px #333333;
-    margin: 15px auto;
-}
 
 .form-add-input {
     display: block;
@@ -341,6 +328,10 @@ body {
 
 .modal-heading{
     font-weight: 700;
+}
+
+.modal-message{
+    padding: 35px 45px;
 }
 
 .modal-form{
