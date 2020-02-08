@@ -1,5 +1,5 @@
 <?php
-$scripts = "<script defer src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>";
+//$scripts = "<script defer src=\"https://code.jquery.com/jquery-3.4.1.min.js\"></script>";
 require_once('../config.php');
 require_once('../components/header.php');
 require_once('../components/admin-edit.php');
