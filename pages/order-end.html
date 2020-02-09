@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/main.css">
+
+    <!--    <script defer src="../scripts/jquery.js"></script>-->
+    <!--    <script defer src="../scripts/authorisation.js"></script>-->
+    <title>PHP Shop. Admin</title>
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="user-info-wrap">
+            <div class="user-info">admin</div>
+        </div>
+        <div class="menuLeft">
+            <a href="../pages/index.php" class="button indexButton">Магазин</a>
+            <a href="#" class="button formButton hidden">Обратная связь</a>
+        </div>
+        <div class="menuRight">
+            <form class="searchForm hidden"><input type="text" placeholder="" class="searchInput form-input">
+                <button class="button searchButton">Поиск</button>
+            </form>
+            <a href="../pages/cart-page.php" class="button headerButton">Корзина</a>
+
+            <form action="../server/exit.php">
+                <input type="submit" class="button headerButton" value="Выход">
+            </form>
+        </div>
+        <div class="modal hidden" id="modal"></div>
+    </header>
+    <main class="main">
+
+        <h2 class="goods-item-heading">Спасибо за Ваш заказ!</h2>
+        <table class="order-table">
+            <tr>
+                <th class="table-heading order-first-column">Наименование</th>
+                <th class="table-heading order-column">Количество</th>
+            </tr>
+            <tr>
+                <td class="table-cell table-cell-text">Castlevania</td>
+                <td class="table-cell table-cell-text">1</td>
+            </tr>
+            <tr class="order-last-row">
+                <td class="table-cell table-cell-text">Сумма к оплате с учётом скидки</td>
+                <td class="table-cell table-cell-text">152 руб.</td>
+            </tr>
+        </table>
+
+        <p class="order-end">Ваш заказ поступил в обработку!</p>
+        <p class="order-end">В ближайшее время с Вами свяжется менеджер для подтверждения и уточнения заказа.</p>
+        <p class="order-end">Спасибо, что выбрали нас!</p>
+
+    </main>
+
+
+    <footer class="footer"><a href="../pages/admin-page.php" class="button indexButton">Админка</a></footer>
+</div>
+</body>
+
+
+</html>
+
+
