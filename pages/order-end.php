@@ -1,11 +1,10 @@
 <?php
-$scripts = "<script defer src=\"../scripts/cart.js\"></script>";
-require_once('../server/defense.php');
+
 require_once('../config.php');
 require_once('../components/header.php');
-require_once('../components/cart.php');
+require_once('../components/order-end.php');
 require_once('../components/footer.php');
-$title = "Корзина";
+$title = "Заказ сформирован";
 
 $tpl = file_get_contents('../template.tpl');
 $patterns = ['/{title}/', '/{styles}/', '/{header}/', '/{main}/', '/{footer}/', '/{scripts}/'];

@@ -18,14 +18,14 @@ if ($_GET['id']) {
 }
 
 //узнаем есть ли уже этот товар у этого клиента в бд
-$query = mysqli_query($link, "SELECT * FROM cart WHERE client='$client' AND item_id = '$item'");
+$query = mysqli_query($link, "SELECT * FROM cart WHERE client='$client' AND item_id = '$item' AND order_id = 0");
 if (mysqli_num_rows($query)) {//если есть
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     $count = $data[0]['count'] + 1;
     $query = mysqli_query($link, "UPDATE cart SET count=$count WHERE client='$client' AND item_id = '$item'");
 } else {//если нет
     $count = 1;
-    $query = mysqli_query($link, "INSERT INTO `cart`(`client`, `item_id`, `count`) VALUES ('$client', '$item', $count)");
+    $query = mysqli_query($link, "INSERT INTO `cart`(`client`, `item_id`) VALUES ('$client', '$item')");
 }
 
 die

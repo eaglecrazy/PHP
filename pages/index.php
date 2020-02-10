@@ -5,9 +5,7 @@ require_once('../config.php');
 require_once('../components/header.php');
 require_once('../components/main.php');
 require_once('../components/footer.php');
-$title = "PHP Shop. Index";
-
-
+$title = "Магазин Замок Дракулы";
 
 $tpl = file_get_contents('../template.tpl');
 $patterns = ['/{title}/', '/{styles}/', '/{header}/', '/{main}/', '/{footer}/', '/{scripts}/'];

@@ -32,7 +32,36 @@
                 <input type="submit" class="button headerButton" value="Выход">
             </form>
         </div>
-        <div class="modal hidden" id="modal"></div>
+        <div class="modal order-modal" id="modal">
+            <button class="modal-close" id="modal-close">X</button>
+            <h3 class="form-heading">Детали заказа</h3>
+            <table class="order-table order-table-modal">
+                <tr>
+                    <th class="table-heading order-first-column">Наименование</th>
+                    <th class="table-heading order-column">Количество</th>
+                    <th class="table-heading order-column">Цена</th>
+                    <th class="table-heading order-column">Сумма</th>
+                    <th class="table-heading order-column">Скидка</th>
+                    <th class="table-heading">Сумма с учётом скидки</th>
+                </tr>
+                <tr>
+                    <td class="table-cell table-cell-text">Castlevania</td>
+                    <td class="table-cell table-cell-text">1</td>
+                    <td class="table-cell table-cell-text">128 руб.</td>
+                    <td class="table-cell table-cell-text">128 руб.</td>
+                    <td class="table-cell table-cell-text">0 %</td>
+                    <td class="table-cell table-cell-text">128 руб.</td>
+                </tr>
+                <tr class="order-last-row">
+                    <td class="table-cell table-cell-text" colspan="5">Скидка за покупку двух игр (10%)</td>
+                    <td class="table-cell table-cell-text">-15 руб.</td>
+                </tr>
+                <tr class="order-last-row">
+                    <td class="table-cell table-cell-text" colspan="5">Сумма к оплате</td>
+                    <td class="table-cell table-cell-text">123 руб.</td>
+                </tr>
+            </table>
+        </div>
     </header>
     <main class="main">
         <table class="items-table">
@@ -55,7 +84,8 @@
                 <td class="table-cell table-cell-text">+7(111)111-11-11</td>
                 <td class="table-cell table-cell-text">Срочно!</td>
                 <td class="table-cell table-cell-control">
-                    <select name="status" id="status" class="table-control">
+                    <select name="status" id="status" class="table-control"{
+">
                         <option value="1">активен</option>
                         <option value="0">завершён</option>
                     </select>

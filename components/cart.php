@@ -3,7 +3,7 @@
 $styles .= '<link rel="stylesheet" href="../styles/cart.css">';
 require_once('../server/db-config.php');
 
-$query = mysqli_query($link, "SELECT item_id, name, cost, count, extension  FROM cart INNER JOIN items ON cart.item_id = items.id WHERE client = '$active_user'");
+$query = mysqli_query($link, "SELECT item_id, name, cost, count, extension FROM cart INNER JOIN items ON cart.item_id = items.id WHERE client = '$active_user' AND order_id = 0");
 $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
 $main_start = " <div class=\"cart-wrapper\"><div class=\"cart-items\">";
@@ -36,7 +36,7 @@ $main_end = "
             <span class=\"cart-info-text cart-info-quantity\">$total_count шт.</span>
             <span class=\"cart-info-text\">Общая стоимость:</span><span
             class=\"cart-info-text cart-info-price\">$total_cost руб.</span>
-        <button class=\"button cart-issue-button\">Перейти к оформлению</button>
+        <a href=\"order-page.php\" class=\"button cart-issue-button\">Перейти к оформлению</a>
     </div>
 </div>";
 

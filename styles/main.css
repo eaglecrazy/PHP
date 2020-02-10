@@ -350,6 +350,17 @@ body {
     font-size: 18px;
 }
 
+.order-modal{
+    background-color: white;
+    padding: 10px;
+}
+
+.order-table-modal{
+    margin: 0;
+    border: none;
+}
+
+
 .order-form {
     border: solid 2px #b4b4b4;
     width: 35%;

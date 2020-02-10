@@ -6,7 +6,7 @@ if($_GET['id']) {
     require_once('../components/item.php');
     require_once('../components/footer.php');
     $scripts .= '<script defer src="../scripts/item.js"></script>';
-    $title = "PHP Shop. Item";
+    $title = $name;
     $tpl = file_get_contents('../template.tpl');
     $patterns = ['/{title}/', '/{styles}/', '/{header}/', '/{main}/', '/{footer}/', '/{scripts}/'];
     $replace = [$title, $styles, $header, $main, $footer, $scripts];
