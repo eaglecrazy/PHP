@@ -8,6 +8,11 @@ $('.cart-item-cross').click((e) => {
         const total_cost = result['total_cost'];
         $('.cart-info-quantity').text(total_count + ' шт.');
         $('.cart-info-price').text(total_cost + ' руб.');
+
+        //если удалили последний товар в корзине, то нужно убрать кнопку "оформить заказ"
+        if(!total_count)
+            $('.cart-issue-button').remove();
+
     }))
     .fail(() => {
         alert('Не удалось удалить ' + id);

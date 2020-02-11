@@ -49,13 +49,13 @@ while ($data = mysqli_fetch_assoc($query)) {
         <td class=\"table-cell table-cell-text\">$phone</td>
         <td class=\"table-cell table-cell-text\">$comment</td>
         <td class=\"table-cell table-cell-control\">
-            <select name=\"status\" id=\"status\" class=\"table-control\">
+            <select name=\"status\" id=\"status-$order_id\" class=\"table-control\">
                 <option value=\"1\" $selected_active>активен</option>
                 <option value=\"0\" $selected_done>завершён</option>
             </select>
         </td>
         <td class=\"table-cell table-cell-delete\">
-            <a class=\"table-link-delete\" href=\"../server/delete-order.php?id=$order[id]\">
+            <a class=\"table-link-delete\" href=\"../server/delete-order.php?id=$order_id\">
                 <img src=\"../img/delete.png\" alt=\"delete\">
             </a>
         </td>

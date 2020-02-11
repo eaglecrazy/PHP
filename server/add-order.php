@@ -2,9 +2,7 @@
 require_once('defense.php');
 require_once('db-config.php');
 
-const ERROR =
-    "<button class=\"modal-close\" id=\"modal-close\">X</button>
-    <div class=\"modal-heading modal-message\">Ошибка запроса.</div>";
+const ERROR = "Ошибка запроса.";
 
 if($_POST['name']){
     $name = def($_POST['name']);

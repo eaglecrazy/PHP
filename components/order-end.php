@@ -36,8 +36,7 @@ if ($total_count >= 2) {
 
 $main_table .=
     "<tr class=\"order-last-row\">
-        <td class=\"table-cell table-cell-text\">Сумма к оплате с учётом скидки</td>
-        <td class=\"table-cell table-cell-text\">$total_cost_discount руб.</td>
+        <td class=\"table-cell table-cell-text\" colspan='2'>Сумма к оплате с учётом скидки $total_cost_discount руб.</td>
     </tr>";
 
 

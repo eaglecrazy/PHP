@@ -29,14 +29,18 @@ foreach ($data as $item) {
             </div>
         </div>";
 }
+$order = "<a href=\"order-page.php\" class=\"button cart-issue-button\">Перейти к оформлению</a>";
+if(!$total_count){
+    $order = '';
+}
 
 $main_end = "
     </div>
     <div class=\"cart-info\"><span class=\"cart-info-text\">Всего товаров:</span>
-            <span class=\"cart-info-text cart-info-quantity\">$total_count шт.</span>
-            <span class=\"cart-info-text\">Общая стоимость:</span><span
-            class=\"cart-info-text cart-info-price\">$total_cost руб.</span>
-        <a href=\"order-page.php\" class=\"button cart-issue-button\">Перейти к оформлению</a>
+        <span class=\"cart-info-text cart-info-quantity\">$total_count шт.</span>
+        <span class=\"cart-info-text\">Общая стоимость:</span>
+        <span class=\"cart-info-text cart-info-price\">$total_cost руб.</span>
+        $order
     </div>
 </div>";
 
