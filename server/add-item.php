@@ -41,4 +41,4 @@ $extension = substr($extension, 1);
 $query = mysqli_query($link, "INSERT INTO items (id, name, cost, description, extension) VALUES ('$id', '$name', '$cost', '$description', '$extension')");
 
 //вернёмся обратно в админку
-header('Location: ../pages/admin-page.php');
+header('Location: ../pages/admin-items-page.php');

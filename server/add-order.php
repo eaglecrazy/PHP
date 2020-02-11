@@ -38,9 +38,11 @@ if ($_COOKIE['active-user']) {
 $query = mysqli_query($link, "INSERT INTO orders (client_id, name, phone, adress, comment) VALUES ('$client', '$name', '$phone', '$adress', '$comment')");
 
 //в корзине проставляем номер заказа
-$query = mysqli_query($link, "SELECT MAX(order_id) FROM orders");
-$data = mysqli_fetch_assoc($query);
-$order_id = $data['MAX(order_id)'];
-$query = mysqli_query($link, "UPDATE cart SET order_id = $order_id WHERE client = '$client' AND order_id = 0");
+//узнаем последний присвоенный айдишник
+$order_id = mysqli_insert_id($link);
+$order_id1 = mysqli_insert_id($link);
+setcookie('last-order', $order_id, time()+3600, '/');
 
-header("Location: ../pages/order-end.php");
+$query = mysqli_query($link, "UPDATE cart SET order_id = $order_id WHERE client = '$client' AND order_id = -1");
+
+header("Location: ../pages/order-end-page.php");

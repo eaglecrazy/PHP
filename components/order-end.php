@@ -1,8 +1,6 @@
 <?php
 
-$query = mysqli_query($link, "SELECT MAX(order_id) FROM orders");
-$data = mysqli_fetch_assoc($query);
-$order_id = $data['MAX(order_id)'];
+$order_id = $_COOKIE['last-order'];
 
 $main_start =
         "<h2 class=\"goods-item-heading\">Номер Вашего заказа №$order_id.</h2>
@@ -28,7 +26,7 @@ while ($data = mysqli_fetch_assoc($query)) {
         </tr>";
 }
 
-$total_cost_discount = $total_count;
+$total_cost_discount = $total_cost;
 if ($total_count >= 2) {
     $total_cost_discount = round($total_cost - $total_cost / 100 * 10, 2);
     $total_cost_discount = sprintf("%.02f", $total_cost_discount);
@@ -49,23 +47,5 @@ $main_end =
     <p class=\"order-end\">В ближайшее время с Вами свяжется менеджер для подтверждения и уточнения заказа.</p>
     <p class=\"order-end\">Спасибо, что выбрали нас!</p>";
 
-
-//</table>";
-//
-//$main_form =
-//    "<form class=\"order-form\" action=\"../server/add-order.php\" method=\"POST\" enctype=\"multipart/form-data\">
-//    <div>
-//        <h2 class=\"form-heading\">Контактные данные</h2>
-//        <label class=\"form-label\" for=\"name\">Имя</label>
-//        <input type=\"text\" name=\"name\" id=\"name\" class=\"form-add-input\" required>
-//        <label class=\"form-label\" for=\"phone\">Телефон</label>
-//        <input type=\"text\" name=\"phone\" id=\"phone\" class=\"form-add-input\" required>
-//        <label class=\"form-label\" for=\"adress\">Адрес</label>
-//        <textarea name=\"adress\" id=\"adress\" cols=\"30\" rows=\"3\" class=\"form-add-input\" required></textarea>
-//        <label class=\"form-label\" for=\"comment\">Комментарий к заказу</label>
-//        <textarea name=\"comment\" id=\"comment\" cols=\"30\" rows=\"3\" class=\"form-add-input\"></textarea>
-//        <input type=\"submit\" value=\"Заказать\" class=\"button order-button\">
-//    </div>
-//</form>";
 
 $main = $main_start . $main_table . $main_end;

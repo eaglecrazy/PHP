@@ -7,13 +7,13 @@ $client = $_COOKIE['active-user'];
 if ($_GET['count'] && $_GET['id']) {//изменение количества
     $id = def($_GET['id']);
     $count = (int)$_GET['count'];
-    $query = mysqli_query($link, "UPDATE cart SET count='$count' WHERE client='$client' AND item_id='$id'");
+    $query = mysqli_query($link, "UPDATE cart SET count='$count' WHERE client='$client' AND item_id='$id' AND order_id = -1");
     $query = mysqli_query($link, "SELECT cost FROM items WHERE id='$id'");
     $data = mysqli_fetch_assoc($query);
     $result['current_cost'] = $data['cost'] * $count;
 } else if ($_GET['id']) {//удаление
     $id = def($_GET['id']);
-    $query = mysqli_query($link, "DELETE FROM cart WHERE client='$client' AND item_id='$id'");
+    $query = mysqli_query($link, "DELETE FROM cart WHERE client='$client' AND item_id='$id' AND order_id = -1");
 }
 
 //вернём информацию о количестве итемов в корзине и их общей стоимости
@@ -29,7 +29,7 @@ die (json_encode($result));
 function recount($link, $client, $total_count, $total_cost){
     global $total_count;
     global $total_cost;
-    $query = mysqli_query($link, "SELECT cost, count  FROM cart INNER JOIN items ON cart.item_id = items.id WHERE client = '$client'");
+    $query = mysqli_query($link, "SELECT cost, count  FROM cart INNER JOIN items ON cart.item_id = items.id WHERE client = '$client' AND order_id = -1");
     $data = mysqli_fetch_all($query, MYSQLI_ASSOC);
     foreach ($data as $i){
         $total_cost += $i['count'] * $i['cost'];

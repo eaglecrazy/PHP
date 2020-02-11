@@ -194,6 +194,7 @@ body {
     padding: 5px;
     border: solid 2px #b4b4b4;
     vertical-align: middle;
+    min-height: 40px;
 }
 
 .table-cell-text {
@@ -212,7 +213,7 @@ body {
 .table-cell-delete {
     padding: 0;
     width: 32px;
-    height: 128px;
+    height: 40px;
 }
 
 .table-link-edit,
@@ -220,6 +221,16 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
+}
+
+.table-link-edit img,
+.table-link-delete img
+{transition: transform 100ms ease-out;}
+
+
+.table-link-edit:hover img,
+.table-link-delete:hover img {
+    transform: scale(1.2);
 }
 
 .table-link-edit img,
@@ -350,12 +361,12 @@ body {
     font-size: 18px;
 }
 
-.order-modal{
+.order-modal {
     background-color: white;
     padding: 10px;
 }
 
-.order-table-modal{
+.order-table-modal {
     margin: 0;
     border: none;
 }

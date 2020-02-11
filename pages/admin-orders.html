@@ -44,6 +44,7 @@
                 <th class="table-heading">Телефон</th>
                 <th class="table-heading">Комментарий</th>
                 <th class="table-heading">Статус заказа</th>
+                <th class="table-heading">Удалить</th>
             </tr>
             <tr>
                 <td class="table-cell table-cell-control">
@@ -60,9 +61,15 @@
                         <option value="0">завершён</option>
                     </select>
                 </td>
+                <td class="table-cell table-cell-delete">
+                    <a class="table-link-delete" href="../server/delete-order.php?id=$order[id]">
+                        <img src="../img/delete.png" alt="delete">
+                    </a>
+                </td>
+            </tr>
         </table>
     </main>
-    <footer class="footer"><a href="../pages/admin-page.php" class="button indexButton">Админка</a></footer>
+    <footer class="footer"><a href="admin-items-page.php" class="button indexButton">Админка</a></footer>
 </div>
 </body>
 

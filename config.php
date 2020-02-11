@@ -3,7 +3,8 @@
 const LINK_INDEX = "../pages/index.php";
 const LINK_FORM = "#";
 const LINK_CART = "../pages/cart-page.php";
-const LINK_ADMIN = "../pages/admin-page.php";
+const LINK_ADMIN_ITEMS = "../pages/admin-items-page.php";
+const LINK_ADMIN_ORDERS = "../pages/admin-orders-page.php";
 const LINK_EMPTY = "#";
 const SALT = "POsdfs459+:0dsjpOIGHf";;
 $styles = '';
