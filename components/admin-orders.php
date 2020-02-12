@@ -29,10 +29,10 @@ while ($data = mysqli_fetch_assoc($query)) {
 
     $selected_active = '';
     $selected_done = '';
-    if ($data['order_status'])
-        $selected_active = 'active';
+    if (!$data['order_status'])
+        $selected_active = 'selected';
     else
-        $selected_done = 'active';
+        $selected_done = 'selected';
 
     //подсчёт суммы
     $total_cost = total_cost($link, $order_id);
@@ -41,7 +41,7 @@ while ($data = mysqli_fetch_assoc($query)) {
         "<tr>
         <td class=\"table-cell table-cell-text \">$order_id</td>
         <td class=\"table-cell table-cell-control\">
-            <button class=\"table-control\" id=\"$id\">Детали заказа</button>
+            <button class=\"button-table-control\" id=\"$order_id\">Детали заказа</button>
         </td>
         <td class=\"table-cell table-cell-text \">$total_cost руб.</td>
         <td class=\"table-cell table-cell-text\">$name</td>
@@ -50,8 +50,8 @@ while ($data = mysqli_fetch_assoc($query)) {
         <td class=\"table-cell table-cell-text\">$comment</td>
         <td class=\"table-cell table-cell-control\">
             <select name=\"status\" id=\"status-$order_id\" class=\"table-control\">
-                <option value=\"1\" $selected_active>активен</option>
-                <option value=\"0\" $selected_done>завершён</option>
+                <option value=\"0\" $selected_active>активен</option>
+                <option value=\"1\" $selected_done>завершён</option>
             </select>
         </td>
         <td class=\"table-cell table-cell-delete\">
@@ -79,7 +79,7 @@ function total_cost($link, $order_id)
         $total_count += $data['count'];
     }
 
-    $total_cost_discount = $total_count;
+    $total_cost_discount = $total_cost;
     if ($total_count >= 2) {
         $total_cost_discount = round($total_cost - $total_cost / 100 * 10, 2);
         $total_cost_discount = sprintf(" % .02f", $total_cost_discount);

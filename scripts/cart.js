@@ -1,6 +1,6 @@
 //удаление элемента
 $('.cart-item-cross').click((e) => {
-    id = e.target.id.replace('cross-', '');
+    const id = e.target.id.replace('cross-', '');
     $.get(`../server/cart-edit-delete-item.php?id=${id}`, ((answer) => {
         $('#' + id).remove();
         const result = JSON.parse(answer);
@@ -22,8 +22,8 @@ $('.cart-item-cross').click((e) => {
 
 //изменение количества
 $('.cart-item-quantity').change((e) => {
-    id = e.target.id.replace('input-', '');
-    count = e.target.value;
+    const id = e.target.id.replace('input-', '');
+    const count = e.target.value;
     $.get(`../server/cart-edit-delete-item.php?id=${id}&count=${count}`, ((answer) => {
         const result = JSON.parse(answer);
         const total_count = result['total_count'];

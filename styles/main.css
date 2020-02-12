@@ -355,7 +355,7 @@ body {
 
 .order-table {
     width: 85%;
-    min-width: 900px;
+    min-width: 1024px;
     border: solid 2px #b4b4b4;
     margin: 15px auto 35px auto;
     font-size: 18px;
@@ -415,6 +415,7 @@ body {
     height: 38px;
 }
 
+.button-table-control,
 .table-control {
     height: 100%;
     border: 0;
@@ -422,6 +423,7 @@ body {
     outline: none;
 }
 
+.button-table-control:hover,
 .table-control:hover {
     background-color: #aeaeae;
 }

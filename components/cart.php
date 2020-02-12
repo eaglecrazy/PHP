@@ -29,7 +29,7 @@ foreach ($data as $item) {
             </div>
         </div>";
 }
-$order = "<a href=\"order-page.php\" class=\"button cart-issue-button\">Перейти к оформлению</a>";
+$order = "<a href=\"../pages/order-page.php\" class=\"button cart-issue-button\">Перейти к оформлению</a>";
 if(!$total_count){
     $order = '';
 }

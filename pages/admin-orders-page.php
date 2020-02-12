@@ -2,6 +2,8 @@
 if($_COOKIE['active-user'] != 'admin')
     die('Войдите на сайт под учётной записью администратора.');
 
+$scripts = "<script defer src=\"../scripts/order.js\"></script>";
+
 require_once('../server/defense.php');
 require_once('../config.php');
 require_once('../components/header.php');

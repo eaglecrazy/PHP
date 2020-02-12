@@ -5,15 +5,15 @@ const T = 1900;
 
 $button_add.click((e) => {
     $.get('../server/add-item-to-cart.php?id=' + e.target.id, (page) => {
-        // $modal.fadeOut(0);
-        $modal.addClass('hidden');
+        // $modal.addClass('hidden');
         $modal.append(page);
+        $modal.fadeIn(0);
+        $modal.fadeOut(T);
+        $button_add.prop("disabled", true);
+        setTimeout(() => {$button_add.prop("disabled", false);}, T);
+        $modal.text('');
     }).fail(() => {
         alert('Не удалось загрузить модальное окно');
     });
-    $modal.fadeIn(0);
-    $modal.fadeOut(T);
-    $button_add.prop("disabled", true);
-    setTimeout(() => {$button_add.prop("disabled", false);}, T);
-    $modal.text('');
+
 });
