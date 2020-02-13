@@ -44,7 +44,7 @@ function getUrlName($str)
     $s = str_replace(' ', '_', $str);
     $s = strtr(mb_strtolower($s), $transliteration);
     //удалим недопустимые символы
-    return preg_replace("/[^a-z0-9\_\-\.]/i", '', $s);
+    return preg_replace("/[^a-z0-9\-]/i", '', $s);
 }
 
 

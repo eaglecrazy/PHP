@@ -3,11 +3,11 @@
 $link_index = LINK_INDEX;
 $link_cart = LINK_CART;
 $link_form = LINK_FORM;
-if ($_SERVER['REQUEST_URI'] === LINK_INDEX)
+if ($_SERVER['REQUEST_URI'] === str_replace('..', '', LINK_INDEX))
     $link_index = LINK_EMPTY;
-else if ($_SERVER['REQUEST_URI'] === LINK_CART)
+else if ($_SERVER['REQUEST_URI'] === str_replace('..', '', LINK_CART))
     $link_cart = LINK_EMPTY;
-else if ($_SERVER['REQUEST_URI'] === LINK_FORM)
+else if ($_SERVER['REQUEST_URI'] === str_replace('..', '', LINK_FORM))
     $link_form = LINK_EMPTY;
 
 if($active_user) {//авторизация была пройдена
@@ -21,7 +21,7 @@ if($active_user) {//авторизация была пройдена
 }
 
 
-$scripts .= '<script defer src="../scripts/modal-window.js"></script>';
+
 $header = "
     $user
     <div class=\"menuLeft\">

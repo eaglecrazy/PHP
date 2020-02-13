@@ -5,9 +5,6 @@ body {
     font-family: "Arial MT", sans-serif;
 }
 
-#app {
-    min-width: 1000px;
-}
 
 .header {
     min-height: 40px;
@@ -18,13 +15,13 @@ body {
     flex-wrap: wrap;
 }
 
-.user-info-wrap{
+.user-info-wrap {
     width: 100%;
     text-align: right;
     margin-bottom: 5px;
 }
 
-.user-info{
+.user-info {
     font-size: 20px;
     width: 180px;
     display: inline-block;
@@ -41,12 +38,12 @@ body {
     margin-bottom: 10px;
 }
 
-.menuRight{
+.menuRight {
     display: flex;
     justify-content: flex-end;
 }
 
-.headerButton{
+.headerButton {
     margin-left: 10px;
 }
 
@@ -107,7 +104,7 @@ body {
     margin: 15px 25px;
 }
 
-.goods-item-heading-wrap{
+.goods-item-heading-wrap {
     display: flex;
     min-height: 120px;
 }
@@ -137,20 +134,13 @@ body {
 }
 
 
-.goods-list-info {
-    font-weight: 700;
-    font-size: 30px;
-    color: #333333;
-}
-
-
 .searchForm {
     display: inline-block;
 }
 
 
-.add-item {
-    border: solid 2px #333333;
+.form {
+    border: solid 2px #b4b4b4;
     text-align: left;
 }
 
@@ -166,10 +156,6 @@ body {
     border-bottom: solid 2px #333333;
 }
 
-.items-list {
-    border: solid 2px #333333;
-    margin: 15px auto;
-}
 
 .form-add-input {
     display: block;
@@ -206,15 +192,16 @@ body {
 .table-heading,
 .table-cell {
     padding: 5px;
-    border: 1px solid black;
+    border: solid 2px #b4b4b4;
     vertical-align: middle;
+    min-height: 40px;
 }
 
 .table-cell-text {
     text-align: left;
 }
 
-.form-edit-image{
+.form-edit-image {
     margin: 15px;
 }
 
@@ -226,7 +213,7 @@ body {
 .table-cell-delete {
     padding: 0;
     width: 32px;
-    height: 128px;
+    height: 40px;
 }
 
 .table-link-edit,
@@ -237,25 +224,34 @@ body {
 }
 
 .table-link-edit img,
-.table-link-delete img{
+.table-link-delete img
+{transition: transform 100ms ease-out;}
+
+
+.table-link-edit:hover img,
+.table-link-delete:hover img {
+    transform: scale(1.2);
+}
+
+.table-link-edit img,
+.table-link-delete img {
     margin: auto;
 }
 
 
-.item-wrap{
+.item-wrap {
     display: flex;
     justify-content: space-between;
 }
 
-.item-info-image{
+.item-info-image {
     margin-left: 20px;
     max-height: 468px;
     max-width: 748px;
 }
 
 
-
-.item-info-heading{
+.item-info-heading {
     font-weight: 700;
     font-size: 40px;
     color: #333333;
@@ -263,14 +259,14 @@ body {
     line-height: 65px;
 }
 
-.item-info-description{
+.item-info-description {
     font-size: 20px;
     line-height: 25px;
     text-align: justify;
     margin: 25px;
 }
 
-.item-info-cost{
+.item-info-cost {
     display: block;
     font-size: 30px;
     font-weight: 700;
@@ -281,7 +277,7 @@ body {
     min-width: 470px;
 }
 
-.item-info-wrap{
+.item-info-wrap {
     background-color: #f2f2f2;
     border: 1px solid #d8d8d8;
     border-radius: 3px;
@@ -291,7 +287,7 @@ body {
     flex-direction: column;
 }
 
-.item-info-button{
+.item-info-button {
     margin: auto auto 20px auto;
 }
 
@@ -325,30 +321,109 @@ body {
     transition: transform 0.1ms linear;
 }
 
-.modal-close:hover{
+.modal-close:hover {
     transform: scale(1.1);
 }
 
-.modal-input-wrap{
+.modal-input-wrap {
     margin: 15px 0;
     width: 100%;
     text-align: left;
 }
 
-#login{
+#login {
     margin-left: 12px;
 }
 
-.modal-heading{
+.modal-heading {
     font-weight: 700;
 }
 
-.modal-form{
+.modal-message {
+    padding: 35px 45px;
+}
+
+.modal-form {
     text-align: center;
     padding: 10px 40px 5px 40px;
     border-bottom: solid 2px #333333;
 }
 
-#registration-button{
+#registration-button {
     margin: 15px;
+}
+
+.order-table {
+    width: 85%;
+    min-width: 1024px;
+    border: solid 2px #b4b4b4;
+    margin: 15px auto 35px auto;
+    font-size: 18px;
+}
+
+.order-modal {
+    background-color: white;
+    padding: 10px;
+}
+
+.order-table-modal {
+    margin: 0;
+    border: none;
+}
+
+
+.order-form {
+    border: solid 2px #b4b4b4;
+    width: 35%;
+    min-width: 434px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 10px;
+}
+
+.order-first-column {
+    width: 40%;
+}
+
+.order-column {
+    width: 10%;
+}
+
+.order-last-row {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.order-button {
+    margin: 15px;
+    width: 406px;
+}
+
+.order-end {
+    width: 70%;
+    margin: 15px auto;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #333333;
+}
+
+.table-cell-control {
+    width: 60px;
+    padding: 0;
+    margin: 0;
+    height: 38px;
+}
+
+.button-table-control,
+.table-control {
+    height: 100%;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.button-table-control:hover,
+.table-control:hover {
+    background-color: #aeaeae;
 }
