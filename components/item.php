@@ -13,7 +13,7 @@ $main =
         <div class=\"item-info-wrap\">
             <h2 class=\"item-info-heading\">$name</h2>
             <p class=\"item-info-description\">$description</p>
-            <span class=\"item-info-cost\">$cost рублей.</span>
+            <span class=\"item-info-cost\">$cost руб.</span>
             <button class=\"button item-info-button\" id=\"$id\">Добавить в корзину</button>
         </div>
         <img src=\"../img/big/$id.$extension\" alt=\"$name\" class=\"item-info-image\" width=\"748\" height=\"472\">

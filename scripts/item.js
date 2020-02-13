@@ -10,8 +10,11 @@ $button_add.click((e) => {
         $modal.fadeIn(0);
         $modal.fadeOut(T);
         $button_add.prop("disabled", true);
-        setTimeout(() => {$button_add.prop("disabled", false);}, T);
-        $modal.text('');
+        setTimeout(() => {
+            $button_add.prop("disabled", false);
+            $modal.text('');
+        }, T);
+
     }).fail(() => {
         alert('Не удалось загрузить модальное окно');
     });
